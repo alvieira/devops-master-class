@@ -1,11 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
-metadata:  
+metadata:
   labels:
     app: hello-world-rest-api
     version: v1
   name: hello-world-rest-api-v1
-  namespace: default  
+  namespace: default
 spec:
   replicas: 2
   minReadySeconds: 45
@@ -27,8 +27,8 @@ spec:
       containers:
       - image: in28min/hello-world-rest-api:0.0.1.RELEASE
         imagePullPolicy: IfNotPresent
-        name: hello-world-rest-api      
-      restartPolicy: Always      
+        name: hello-world-rest-api
+      restartPolicy: Always
       terminationGracePeriodSeconds: 30
 ---
 apiVersion: extensions/v1beta1
@@ -70,10 +70,10 @@ metadata:
   labels:
     app: hello-world-rest-api
   name: hello-world-rest-api
-  namespace: default  
+  namespace: default
 spec:
   ports:
-  - nodePort: 30743
+  - nodePort: 32114
     port: 8080
     protocol: TCP
     targetPort: 8080
@@ -81,3 +81,5 @@ spec:
     app: hello-world-rest-api
   sessionAffinity: None
   type: LoadBalancer
+
+
